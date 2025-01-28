@@ -1,10 +1,10 @@
 name: Run Python Installer on GitHub Actions
 
-on: [push, pull_request]  # Runs on push or pull request
+on: [push, pull_request]
 
 jobs:
   run-batch-script:
-    runs-on: windows-latest  # Ensures it runs on a Windows machine
+    runs-on: windows-latest  # Running on Windows
 
     steps:
       - name: Checkout Repository
@@ -13,9 +13,9 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9"  # Use a compatible Python version
+          python-version: "3.9"  # Adjust if needed
 
-      - name: Run python_installer.bat
+      - name: Install dependencies and run script
         shell: cmd
         run: |
           python -m pip install --upgrade pip
