@@ -1,14 +1,16 @@
 @echo off
 echo Creating virtual environment...
-python -m venv virtual_environment
+python -m venv venv
 
 echo Activating virtual environment...
-call virtual_environment\Scripts\activate
+call venv\Scripts\activate
 
-echo Checking for required libraries...
-pip install --upgrade pip
+echo Upgrading pip...
+python -m pip install --upgrade pip
 
 echo Installing dependencies...
+python -m pip install pipwin
+pipwin install pyaudio
 pip install -r requirements.txt
 
 echo Running Streamlit app...
