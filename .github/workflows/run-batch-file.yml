@@ -1,18 +1,18 @@
 name: Run Batch File
 
-on:
-  workflow_dispatch:  # Allows manual execution of the workflow
+on: 
   push:
     branches:
-      - main  # Triggers the workflow on pushes to the main branch
+      - main
 
 jobs:
-  run-batch-file:
-    runs-on: windows-latest  # Run on a Windows machine
+  run-batch:
+    runs-on: windows-latest  # Uses a Windows environment to run the .bat file
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  # Checks out the repository code
+        uses: actions/checkout@v3
 
       - name: Run Batch File
-        run: python_installer.bat  # Execute your batch file
+        run: python_installer.bat
+        shell: cmd
